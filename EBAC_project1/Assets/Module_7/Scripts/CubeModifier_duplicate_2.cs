@@ -6,11 +6,15 @@ using UnityEngine;
 public class CubeModifier_duplicate_2 : MonoBehaviour
 {
     public GameObject prefabCube;
+    public CubeModifier _CubeModifier;
+    public CubeModifier_duplicate_1 _CubeModifier_1;
+
     private bool isWhite;
+    private MeshRenderer _meshRenderer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _meshRenderer = prefabCube.GetComponent<MeshRenderer>();   
     }
 
     // Update is called once per frame
@@ -21,18 +25,14 @@ public class CubeModifier_duplicate_2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        bool isCubeWhite = false;
-        var cubeGo = GameObject.Find("Cube");
-        if (cubeGo != null)
-            isCubeWhite = cubeGo.GetComponent<CubeModifier>().getIsWhite();
-
-        bool isCubeDuplicate1White = false;
-        var cubeDuplicate1Go = GameObject.Find("Cube_duplicate_1");
-        if (cubeDuplicate1Go != null)
-            isCubeDuplicate1White = cubeDuplicate1Go.GetComponent<CubeModifier_duplicate_1>().getIsWhite();
-
-        isWhite = isCubeWhite && isCubeDuplicate1White;
-        prefabCube.GetComponent<MeshRenderer>().material.color = isWhite ? Color.white : Color.black;
+        if (_CubeModifier != null && _CubeModifier_1 != null)
+        {
+            isWhite = _CubeModifier.getIsWhite() || _CubeModifier_1.getIsWhite();
+            _meshRenderer.material.color = isWhite ? Color.white : Color.black;
+        }
+        else
+        {
+            Debug.LogError("invalid Cube Modifier ");
+        }
     }
 }

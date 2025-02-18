@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class CubeModifier : MonoBehaviour
 {
-    public GameObject prefabCube;
+    public CapsuleModifier _CapsuleModifier;
+    public SphereModifier _SphereModifier;
+
+    private MeshRenderer _MeshRenderer;
     private bool isWhite;
     // Start is called before the first frame update
-    void Start()
+    void Start()    
     {
-        
+        _MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -20,19 +23,16 @@ public class CubeModifier : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        bool isCapsuleWhite = false;
-        var capsuleGo = GameObject.Find("Capsule");
-        if (capsuleGo != null )
-            isCapsuleWhite = capsuleGo.GetComponent<CapsuleModifier>().getIsWhite();
 
-        bool isSphereWhite = false;
-        var sphereGo = GameObject.Find("Sphere");
-        if (sphereGo != null)
-            isSphereWhite = sphereGo.GetComponent<SphereModifier>().getIsWhite();
-
-        isWhite = isCapsuleWhite && isSphereWhite;
-        prefabCube.GetComponent<MeshRenderer>().material.color = isWhite ? Color.white : Color.black;
+        if (_CapsuleModifier != null && _SphereModifier != null)
+        {
+            isWhite = _CapsuleModifier.getIsWhite() && _SphereModifier.getIsWhite();
+        }
+        else
+        {
+            Debug.LogError("Invalid capsule or sphere modifier");
+        }
+        _MeshRenderer.material.color = isWhite ? Color.white : Color.black;
     }
     public bool getIsWhite() { return isWhite; }
 }
