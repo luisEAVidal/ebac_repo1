@@ -6,8 +6,9 @@ using UnityEngine;
 public class CapsuleModifier : MonoBehaviour
 {
     public GameObject capsulePrefab;
-    private bool isWhite;
 
+    private bool isWhite;
+    private MeshRenderer _MeshRenderer;
     private void Awake()
     {
         //capsulePrefab.GetComponent<MeshRenderer>().material.color = new Color(Random.value, Random.value, Random.value);
@@ -16,6 +17,7 @@ public class CapsuleModifier : MonoBehaviour
     void Start()
     {
         isWhite = false;
+        _MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class CapsuleModifier : MonoBehaviour
 
     private void FixedUpdate()
     {
-        capsulePrefab.GetComponent<MeshRenderer>().material.color = isWhite ? Color.white: Color.black;
+        _MeshRenderer.material.color = isWhite ? Color.white: Color.black;
         isWhite = !isWhite;
     }
 

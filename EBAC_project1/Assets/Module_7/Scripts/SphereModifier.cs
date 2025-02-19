@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SphereModifier : MonoBehaviour
 {
-    public GameObject prefabSphere;
-    public bool isWhite;
+    private bool isWhite;
+    private MeshRenderer _MeshRenderer;
     // Start is called before the first frame update
     void Start()
     {
         isWhite = false;
+        _MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -21,7 +22,7 @@ public class SphereModifier : MonoBehaviour
     private void FixedUpdate()
     {
         //prefabSphere.GetComponent<MeshRenderer>().material.color = new Color(Random.value, Random.value, Random.value);
-        prefabSphere.GetComponent<MeshRenderer>().material.color = isWhite ? Color.white : Color.black;
+        _MeshRenderer.material.color = isWhite ? Color.white : Color.black;
         isWhite = !isWhite;
     }
 

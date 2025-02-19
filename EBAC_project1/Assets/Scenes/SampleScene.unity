@@ -135,12 +135,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235562629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 730c0c1261037f546968be726f7c0ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCube: {fileID: 235562629}
+  _CapsuleModifier: {fileID: 1851313872}
+  _SphereModifier: {fileID: 1801344579}
 --- !u!1001 &306950433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -311,6 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabCube: {fileID: 796192520}
+  _CubeModifier: {fileID: 1551653041}
+  _CubeModifier_1: {fileID: 235562630}
 --- !u!1001 &954334879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,7 +695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bf5ea0a857c834db046780ba578340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCube: {fileID: 1551653040}
+  _CapsuleModifier: {fileID: 1851313872}
+  _SphereModifier: {fileID: 1801344579}
 --- !u!1 &1801344578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7860292359461897867, guid: 5e4d2067aa1d1664790a5adb04357917, type: 3}
@@ -710,8 +714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e906c4c8fdbc4b8048da48b639f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabSphere: {fileID: 1801344578}
-  isWhite: 0
 --- !u!1 &1851313871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9008682159046025942, guid: eb73ad2c28f926e44a21da63bfff438c, type: 3}
@@ -724,12 +726,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851313871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 446a8c65c1ace9f49b74483a9c741507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   capsulePrefab: {fileID: 1851313871}
+--- !u!114 &1851313877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851313871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78828d513e1724944877aa19c5475105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capsulePrefab: {fileID: 1851313871}
+  cubeDuplicate1Go: {fileID: 235562629}
+  cubeColor: red
 --- !u!1001 &1951997125
 PrefabInstance:
   m_ObjectHideFlags: 0
