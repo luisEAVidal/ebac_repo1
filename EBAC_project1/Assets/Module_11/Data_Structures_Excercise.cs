@@ -19,7 +19,8 @@ public class Data_Structures_Excercise : MonoBehaviour
     public int[] Sort_Array(int[] array)
     {
         var list = new List<int> (array);
-        list.Sort ();
+        list.Sort();
+        list.Reverse();
         return list.ToArray ();
     }
 
@@ -31,6 +32,22 @@ public class Data_Structures_Excercise : MonoBehaviour
     public HashSet<string> List_To_HashSet(List<string> list)
     {
         return new HashSet<string>(list);
+    }
+
+    public void PrintStackAndQueue(Stack<string> stack)
+    {
+        Queue<string> queue = new Queue<string>();
+
+        while (stack.Count > 0) {
+            Debug.Log(stack.Peek());
+            queue.Enqueue(stack.Pop());
+        }
+
+        while (queue.Count > 0) { 
+            Debug.Log(queue.Dequeue());
+        }
+
+        return;
     }
     // Start is called before the first frame update
     void Start()
@@ -64,6 +81,17 @@ public class Data_Structures_Excercise : MonoBehaviour
         {
             Debug.Log(value);
         }
+
+        var stackToPrint = new Stack<string>();
+        stackToPrint.Push("Nightfall");
+        stackToPrint.Push("The Minstrel");
+        stackToPrint.Push("The Curse of Feanor");
+        stackToPrint.Push("Captured");
+        stackToPrint.Push("Blood Tears");
+
+        PrintStackAndQueue(stackToPrint);
+
+
     }
 
     // Update is called once per frame
